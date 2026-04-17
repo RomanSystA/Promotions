@@ -71,7 +71,7 @@ paths:
                          type: integer
                          description: идентификатор тарифа
                        extension:
-                         type: integer
+                         type: string
                          description: дополнительный параметр
                        serv_id_list:
                          type: array
