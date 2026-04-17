@@ -18,13 +18,13 @@ paths:
            description: идентификатор рекламного предложения
            required: true
            schema:
-             type: string
-         - name: iinp
+             type: integer
+         - name: inp
            in: query
            description: идентификатор рекламного предложения
            required: true
            schema:
-             type: string
+             type: integer
        responses:
          '200':
            description: Положительный ответ на запрос, отображение рекламного контента
