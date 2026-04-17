@@ -12,7 +12,7 @@ paths:
        parameters:
          - name: msisdn_id
            in: query
-           description: идентификатор рекламного предложения
+           description: номер телефона абонента
            required: true
            schema:
              type: string
