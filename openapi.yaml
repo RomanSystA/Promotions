@@ -7,12 +7,15 @@ paths:
    /api/promotions/detail/offers:
      get:
        summary: получение рекламных предложений
+       x-integration:
+         type: SOAP
+         operation: getSSDetailsOffer
        security:
          - BearerAuth: []
        parameters:
          - name: msisdn_id
            in: query
-           description: номер телефона абонента
+           description: идентификатор рекламного предложения
            required: true
            schema:
              type: string
