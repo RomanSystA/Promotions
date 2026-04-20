@@ -4,7 +4,7 @@ info:
    title: Рекламные предложения
    description: Метод описывает данные рекламных предложений, которые загружаются на странице пользователя
 paths:
-   /api/promotions/detail/offers:
+   /api/promotions/offers/{msisdn}:
      get:
        summary: получение рекламных предложений
        x-integration:
@@ -13,8 +13,8 @@ paths:
        security:
          - BearerAuth: []
        parameters:
-         - name: msisdn_id
-           in: query
+         - name: msisdn
+           in: path
            description: идентификатор рекламного предложения
            required: true
            schema:
@@ -31,53 +31,8 @@ paths:
            content:
              application/json:
                schema:
-                 type: object
-                 properties:
-                   list:
-                     type: object
-                     properties:
-                       treatment_id:
-                         type: integer
-                         description: идентификатор реклмамного предложения
-                       branch_id:
-                         type: integer
-                         description: идентификатор региона абонента
-                       sOffer_id:
-                         type: integer
-                         description: идентификатор абонента
-                       description:
-                         type: object
-                         description: набор настраиваемых параметров
-                         properties:
-                           full_ofr_desc:
-                             type: string
-                             description: описание рекламного предложения
-                           rate_wo_discount: 
-                             type: integer
-                             description: стоимость предложения без скидки
-                           rate_with_discount:
-                             type: integer
-                             description: стоимость предложения со скидкой
-                       offerType:
-                         type: string
-                         description: тип предложения
-                       offerTheme:
-                         type: string
-                         description: тема оффера
-                       serv_id:
-                         type: integer
-                         description: идентификатор услуги
-                       rate_id:
-                         type: integer
-                         description: идентификатор тарифа
-                       extension:
-                         type: string
-                         description: дополнительный параметр
-                       serv_id_list:
-                         type: array
-                         description: список с id услуг
-                         items:
-                           type: integer
+                 - $ref: '#/components/schemas/list'
+                 
        '401':
          description: Unauthorized
        '403':
@@ -87,7 +42,30 @@ paths:
        '500':
          description: Server error
                 
-                      
+components:
+   schemas:
+     list:
+       type: object
+       description: набор настраиваемых параметров
+       properties:
+         full_ofr_desc:
+           type: string
+           description: описание рекламного предложения
+         rate_wo_discount: 
+           type: integer
+           description: стоимость предложения без скидки
+         rate_with_discount:
+           type: integer
+           description: стоимость предложения со скидкой
+         offerType:
+           type: string
+           description: тип предложения
+
+   securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
                        
                        
                        
