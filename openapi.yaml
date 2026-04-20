@@ -24,7 +24,8 @@ paths:
            description: идентификатор рекламного предложения
            required: true
            schema:
-             type: integer
+             type: string
+             example: abc
        responses:
          '200':
            description: Положительный ответ на запрос, отображение рекламного контента
