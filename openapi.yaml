@@ -7,15 +7,12 @@ paths:
    /api/promotions/offers/{msisdn}:
      get:
        summary: получение рекламных предложений
-       x-integration:
-         type: SOAP
-         operation: getSSDetailsOffer
        security:
          - BearerAuth: []
        parameters:
          - name: msisdn
            in: path
-           description: идентификатор рекламного предложения
+           description: номер телефона абонента
            required: true
            schema:
              type: integer
@@ -25,7 +22,7 @@ paths:
            required: true
            schema:
              type: string
-             example: abc
+             example: "promo1"
        responses:
          '200':
            description: Положительный ответ на запрос, отображение рекламного контента
@@ -52,15 +49,19 @@ components:
          full_ofr_desc:
            type: string
            description: описание рекламного предложения
+           example: "Скидка при покупке в этом месяце"
          rate_wo_discount: 
            type: integer
            description: стоимость предложения без скидки
+           example: 500
          rate_with_discount:
            type: integer
            description: стоимость предложения со скидкой
+           example: 299
          offerType:
            type: string
            description: тип предложения
+           example: "promo1"
 
    securitySchemes:
     BearerAuth:
@@ -69,10 +70,4 @@ components:
       bearerFormat: JWT
                        
                        
-                       
-                       
-                       
-                       
-                       
-                       
-                     
+   
