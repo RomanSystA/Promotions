@@ -18,7 +18,7 @@ paths:
              type: integer
          - name: inp
            in: query
-           description: идентификатор рекламного предложения
+           description: название рекламной акции
            required: true
            schema:
              type: string
@@ -58,10 +58,10 @@ components:
            type: integer
            description: стоимость предложения со скидкой
            example: 299
-         offerType:
+         offerTheme:
            type: string
-           description: тип предложения
-           example: "promo1"
+           description: название предложения
+           example: "Black"
 
    securitySchemes:
     BearerAuth:
