@@ -16,13 +16,6 @@ paths:
            required: true
            schema:
              type: integer
-         - name: inp
-           in: query
-           description: название рекламной акции
-           required: true
-           schema:
-             type: string
-             example: "promo1"
        responses:
          '200':
            description: Положительный ответ на запрос, отображение рекламного контента
@@ -46,22 +39,23 @@ components:
        type: object
        description: набор настраиваемых параметров
        properties:
-         full_ofr_desc:
-           type: string
-           description: описание рекламного предложения
-           example: "Скидка при покупке в этом месяце"
-         rate_wo_discount: 
-           type: integer
-           description: стоимость предложения без скидки
-           example: 500
-         rate_with_discount:
-           type: integer
-           description: стоимость предложения со скидкой
-           example: 299
          offerTheme:
            type: string
            description: название предложения
            example: "Black"
+         full_ofr_desc:
+           type: string
+           description: описание рекламного предложения
+           example: "Скидка при покупке в этом месяце"
+         rate_with_discount:
+           type: integer
+           description: стоимость предложения со скидкой
+           example: 299
+         rate_wo_discount: 
+           type: integer
+           description: стоимость предложения без скидки
+           example: 500
+         
 
    securitySchemes:
     BearerAuth:
