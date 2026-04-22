@@ -28,6 +28,9 @@ paths:
                      type: array
                      items:
                        $ref: '#/components/schemas/offer'
+                   meta:
+                     $ref: '#/components/schemas/meta'
+                   
          '400':
            description: Данные повреждены или допущена ошибка при неверном синтаксисе или формате данных, отправленных при запросе
            content:
@@ -96,7 +99,7 @@ components:
              - 'SERVER_ERROR'
          message:
            type: string
-           example: 'Bad request'
+           example: 'OK'
            x-extensible-enum:
              - 'Bad request'
              - 'Bearer token invalid'
