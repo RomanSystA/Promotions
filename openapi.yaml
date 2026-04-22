@@ -4,7 +4,7 @@ info:
    title: Рекламные предложения
    description: Метод описывает данные рекламных предложений, которые загружаются на странице пользователя
 paths:
-   /api/promotions/offers/{msisdn}:
+   /api/promotions/{msisdn}/offers:
      get:
        summary: получение рекламных предложений
        security:
@@ -29,31 +29,31 @@ paths:
                      items:
                        $ref: '#/components/schemas/offer'
          '400':
-           description: Bad request
+           description: Данные повреждены или допущена ошибка при неверном синтаксисе или формате данных, отправленных при запросе
            content:
              application/json:
                schema:
                  $ref: '#/components/schemas/meta'
          '401':
-           description: Unauthorized
+           description: Пользователь не авторизован или токен просрочен
            content:
              application/json:
                schema:
                  $ref: '#/components/schemas/meta'
          '403':
-           description: ERROR_MSISDN
+           description: Некорректный формат номера телефона
            content:
              application/json:
                schema:
                  $ref: '#/components/schemas/meta'
          '404':
-           description: Not found
+           description: Пользователь с указанным номером не является абонентом t2
            content:
              application/json:
                schema:
                  $ref: '#/components/schemas/meta'
          '500':
-           description: Server error
+           description: По причине какого-либо внутреннего сбоя система не смогла обработать запрос
            content:
              application/json:
                schema:
@@ -94,6 +94,15 @@ components:
              - 'ERROR_MSISDN'
              - 'NOT_FOUND'
              - 'SERVER_ERROR'
+         message:
+           type: string
+           example: 'Bad request'
+           x-extensible-enum:
+             - 'Bad request'
+             - 'Bearer token invalid'
+             - 'Bad msisdn'
+             - 'Msisdn not found'
+             - 'Internal server error'
    securitySchemes:
     BearerAuth:
       type: http
