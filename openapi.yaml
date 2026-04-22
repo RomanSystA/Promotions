@@ -15,7 +15,7 @@ paths:
            description: номер телефона абонента
            required: true
            schema:
-             type: integer
+             type: string
        responses:
          '200':
            description: Положительный ответ на запрос, отображение рекламного контента
