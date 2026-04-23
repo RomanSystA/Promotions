@@ -44,12 +44,6 @@ paths:
              application/json:
                schema:
                  $ref: '#/components/schemas/meta'
-         '403':
-           description: Некорректный формат номера телефона
-           content:
-             application/json:
-               schema:
-                 $ref: '#/components/schemas/meta'
          '404':
            description: Пользователь с указанным номером не является абонентом t2
            content:
@@ -102,11 +96,11 @@ components:
            type: string
            example: 'OK'
            x-extensible-enum:
-             - 'Bad request'
-             - 'Bearer token invalid'
-             - 'Bad msisdn'
-             - 'Msisdn not found'
-             - 'Internal server error'
+             - 'BAD REQUEST'
+             - 'BEARER TOKEN INVALID'
+             - 'BAD MSISDN'
+             - 'MSISDN NOT FOUND'
+             - 'INTERNAL SERVER ERROR'
    securitySchemes:
     BearerAuth:
       type: http
