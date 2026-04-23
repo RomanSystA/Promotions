@@ -14,7 +14,7 @@ paths:
            in: path
            description: номер телефона абонента
            required: true
-           example: '9051234567'
+           example: '79051234567'
            schema:
              type: string
        responses:
