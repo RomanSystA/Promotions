@@ -90,6 +90,7 @@ components:
              - 'ERROR'
              - 'Unauthorized'
              - 'ERROR_MSISDN'
+             - 'ERROR_PROMO'
              - 'NOT_FOUND'
              - 'SERVER_ERROR'
          message:
