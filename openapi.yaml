@@ -17,6 +17,13 @@ paths:
            example: '79051234567'
            schema:
              type: string
+         - name: inp
+           in: query
+           description: название рекламной акции
+           required: true
+           example: 'black'
+           schema:
+             type: string
        responses:
          '200':
            description: Положительный ответ на запрос, отображение рекламного контента
